@@ -1,6 +1,6 @@
 {
   "name": "@leonardodino/github",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "github api wrapper with login",
   "main": "lib/login.js",
   "scripts": {
