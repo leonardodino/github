@@ -1,6 +1,6 @@
 {
-  "name": "githublogin",
-  "version": "0.0.2-pre",
+  "name": "@leonardodino/github",
+  "version": "0.0.1",
   "description": "github api wrapper with login",
   "main": "lib/login.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "author": "Leonardo Dino <leonardo@kunstdesign.com.br>",
   "license": "MIT",
   "dependencies": {
-    "github-api": "leonardodino/github"
+    "github-api": "leonardodino/github-api"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
