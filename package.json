@@ -1,7 +1,7 @@
 {
   "name": "githublogin",
   "version": "0.0.0",
-  "description": "",
+  "description": "github api wrapper with login",
   "main": "lib/login.js",
   "scripts": {
     "bump": "npm-bump patch",
@@ -16,12 +16,14 @@
       "es2015"
     ]
   },
-  "author": "",
-  "license": "ISC",
+  "repository":{
+    "type": "git",
+    "url": "git://github.com/leonardodino/github.git"
+  },
+  "author": "Leonardo Dino <leonardo@kunstdesign.com.br>",
+  "license": "MIT",
   "dependencies": {
-    "github-api": "leonardodino/github",
-    "js-base64": "^2.1.9",
-    "xmlhttprequest": "~1.7.0"
+    "github-api": "leonardodino/github"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
