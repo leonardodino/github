@@ -1,6 +1,6 @@
 {
   "name": "githublogin",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "github api wrapper with login",
   "main": "lib/login.js",
   "scripts": {
@@ -16,7 +16,7 @@
       "es2015"
     ]
   },
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "git://github.com/leonardodino/github.git"
   },
