@@ -8,7 +8,8 @@
     "bump-minor": "npm-bump minor",
     "bump-major": "npm-bump major",
     "compile": "babel -d lib src/",
-    "prepublish": "npm compile",
+    "prepublish": "npm run compile",
+    "clean": "rm -r ./lib test.bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
