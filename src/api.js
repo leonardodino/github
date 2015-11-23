@@ -1,10 +1,11 @@
 import Github from 'github-api';
 
 class Api {
-	constructor(credentials = {}, repoUrl){
+	constructor(credentials = {}, repoUrl, options){
 		var [repoUser, repoName] = repoUrl.split('/');
 		var {username, password} = credentials;
 		var github = new Github({
+			apiUrl: options.apiUrl
 			username: credentials.username,
 			password: credentials.password,
 			token: credentials.token,
