@@ -5,7 +5,7 @@ class Api {
 		var [repoUser, repoName] = repoUrl.split('/');
 		var {username, password} = credentials;
 		var github = new Github({
-			apiUrl: options.apiUrl
+			apiUrl: options.apiUrl,
 			username: credentials.username,
 			password: credentials.password,
 			token: credentials.token,
