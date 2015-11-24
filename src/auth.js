@@ -36,7 +36,7 @@ class GithubLoginService{
 		}
 		var error = clone(this.state.error);
 		this._resetState()
-		return Promise.reject({error})
+		return Promise.reject(error)
 	}
 
 	logout(){
@@ -79,7 +79,6 @@ class GithubLoginService{
 		return fetch(url+code)
 			.then((response)=>response.json())
 			.then((data)=>this._authenticate(data))
-			.catch((error)=>this._authenticateError(error))
 	}
 
 	_requestAuthDialog(){
@@ -93,11 +92,6 @@ class GithubLoginService{
 		}else{
 			return Promise.reject(new Error('authorization token missing'))
 		}
-	}
-
-	_authenticateError(error){
-		this._setState({error})
-		return error;
 	}
 }
 
