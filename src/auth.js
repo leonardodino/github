@@ -15,11 +15,6 @@ class GithubLoginService{
 		return this;
 	}
 
-	_setState(newState){
-		this.state = merge(this.state, newState)
-		localStorage.setItem(LSKey, JSON.stringify(this.state))
-	}
-
 	isAuthenticated(){
 		return this.state.authenticated;
 	}
@@ -46,6 +41,20 @@ class GithubLoginService{
 		this._resetState();
 		return Promise.resolve({})
 	}
+	_setState(newState){
+		this.state = merge(this.state, newState)
+		localStorage.setItem(LSKey, JSON.stringify(this.state))
+	}
+
+	_resetState(){
+		localStorage.removeItem(LSKey);
+		this.constructor();
+	}
+
+	_loadState(){
+		var snapshot = localStorage.getItem(LSKey, this.state);
+		this.state = snapshot ? JSON.parse(snapshot) : this.state
+	}
 
 	_getCodeFromUrl(){
 		var query = window.location.search.replace(/^\?/, '');
@@ -69,16 +78,6 @@ class GithubLoginService{
 			.then((response)=>response.json())
 			.then((data)=>this._authenticate(data))
 			.catch((error)=>this._authenticateError(error))
-	}
-
-	_resetState(){
-		localStorage.removeItem(LSKey);
-		this.constructor();
-	}
-
-	_loadState(){
-		var snapshot = localStorage.getItem(LSKey, this.state);
-		this.state = snapshot ? JSON.parse(snapshot) : this.state
 	}
 
 	_requestAuthDialog(){
