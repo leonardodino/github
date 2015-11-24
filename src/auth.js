@@ -59,13 +59,10 @@ class GithubLoginService{
 		var code = this._getCodeFromUrl()
 		if(code){
 			this._setState({code})
-			// console.info('code', code)
 		}
 	}
 
 	_deeperAuth(code){
-		// code to token. passing by gatekeeper
-		// alert('code: '+code)
 		var url = 'http://haiku-gatekeeper.herokuapp.com/authenticate/'
 
 		return fetch(url+code)
@@ -91,8 +88,6 @@ class GithubLoginService{
 	_authenticate({token}){
 		if(token){
 			this._setState({token, authenticated: true})
-			// console.warn(arguments)
-			// alert('token: '+token)
 			return Promise.resolve({token})
 		}else{
 			return Promise.reject(new Error('authorization token missing'))
@@ -100,17 +95,9 @@ class GithubLoginService{
 	}
 	_authenticateError(error){
 		this._setState({error})
-		// alert(error)
 		return error;
 	}
 }
 
 // consider using singleton in future;
 export default GithubLoginService()
-
-// window.GLS = new GithubLoginService();
-// window.glsUser = GLS.login()
-// 	.then(({token})=>alert('HORRAY, LOGGED IN! KEY: '+token))
-// 	.then(()=>GLS.logout())
-// 	.then(()=>alert('loged out, nice'))
-// 	.catch((error)=>{alert('error ):'); console.error(error)})
