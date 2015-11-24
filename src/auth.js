@@ -105,7 +105,10 @@ class GithubLoginService{
 	}
 }
 
-window.GLS = new GithubLoginService();
+// consider using singleton in future;
+export default GithubLoginService()
+
+// window.GLS = new GithubLoginService();
 // window.glsUser = GLS.login()
 // 	.then(({token})=>alert('HORRAY, LOGGED IN! KEY: '+token))
 // 	.then(()=>GLS.logout())
