@@ -1,5 +1,5 @@
 import qs from 'querystring';
-import {merge, clone} from 'lodash';
+import {merge} from 'lodash';
 
 var noop = function(){};
 
