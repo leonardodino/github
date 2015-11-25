@@ -19,6 +19,9 @@ class Api {
 				return Promise.resolve(this)
 			})
 	}
+	deauth(){
+		return new GithubAuth().logout()
+	}
 }
 
 export default Api;

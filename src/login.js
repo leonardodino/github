@@ -31,6 +31,9 @@ class GithubLogin extends Api {
 			.then((api)=>this._getUserInfo(api))
 			.then((api)=>this._getAcess(api))
 	}
+	logout(){
+		return this.deauth()
+	}
 }
 
 export default GithubLogin;
