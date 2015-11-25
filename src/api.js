@@ -1,22 +1,23 @@
 import Github from 'github-api';
+import GithubAuth from './auth'
 
 class Api {
-	constructor(credentials = {}, repoUrl, options){
+	constructor(repoUrl, options){
 		var [repoUser, repoName] = repoUrl.split('/');
-		var {username, password} = credentials;
-		var github = new Github({
-			apiUrl: options.apiUrl,
-			username: credentials.username,
-			password: credentials.password,
-			token: credentials.token,
-			auth: credentials.token ? 'oauth' : 'basic'
-		});
-		
 		this.repoName = repoName;
 		this.repoUser = repoUser;
-		this.repo = github.getRepo(repoUser, repoName);
-		this.user = github.getUser();
-		return this
+	}
+	auth(){
+		return new GithubAuth().login()
+			.then(({token})=>{
+				var github = new Github({
+					token: token,
+					auth: 'oauth'
+				});
+				this.repo = github.getRepo(this.repoUser, this.repoName);
+				this.user = github.getUser();
+				return Promise.resolve(this)
+			})
 	}
 }
 

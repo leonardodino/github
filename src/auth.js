@@ -96,4 +96,4 @@ class GithubLoginService{
 }
 
 // consider using singleton in future;
-export default GithubLoginService()
+export default GithubLoginService
