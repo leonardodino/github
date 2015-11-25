@@ -1,5 +1,7 @@
 import qs from 'querystring';
-import {merge, noop, clone} from 'lodash';
+import {merge, clone} from 'lodash';
+
+var noop = function(){};
 
 const LSKey = '__GithubService';
 
@@ -29,7 +31,6 @@ class GithubLoginService{
 			if(!this.state.code){
 				this._requestAuthDialog()
 				return new Promise(noop)
-
 			}else{
 				return this._deeperAuth(this.state.code)
 			}
