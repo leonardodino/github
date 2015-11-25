@@ -2,7 +2,7 @@ function objectForEach(object, fn, thisArg){
 	// follows lodash standard
 	return Object.keys(object).forEach(function(prop){
 		fn(object[prop], prop, object);
-	}, thisArg);	
+	}, thisArg);
 }
 
 function objectMap(object, fn){
@@ -31,7 +31,6 @@ function setDeep(object, path, value, separator, childPath){
 		object[childPath][p] = value;
 	}
 }
-
 
 function deepify(tree){
 	var deepTree = {}
