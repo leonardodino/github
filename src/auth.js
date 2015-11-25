@@ -10,7 +10,6 @@ class GithubLoginService{
 		this.state = {
 			code: null,
 			token: null,
-			error: false,
 			authenticated: false,
 		}
 		this._loadState()
@@ -24,8 +23,7 @@ class GithubLoginService{
 	login(){
 		if(this.isAuthenticated()){
 			return Promise.resolve({token: this.state.token})
-
-		}else if(!this.state.error){
+		}else{
 			this._checkCode()
 
 			if(!this.state.code){
@@ -35,9 +33,7 @@ class GithubLoginService{
 				return this._deeperAuth(this.state.code)
 			}
 		}
-		var error = clone(this.state.error);
-		this._resetState()
-		return Promise.reject(error)
+		return Promise.reject(new Error('reached dead code, it\'s a bug!'))
 	}
 
 	logout(){
