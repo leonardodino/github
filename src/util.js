@@ -1,12 +1,14 @@
+// es5
+
 function objectForEach(object, fn, thisArg){
-	// follows lodash standard
+	// follows lodash signature, excluding magic.
 	return Object.keys(object).forEach(function(prop){
 		fn(object[prop], prop, object);
 	}, thisArg);
 }
 
 function objectMap(object, fn){
-	// follows lodash standard
+	// follows lodash signature, excluding magic and thisArg.
 	return Object.keys(object).reduce(function(newObject, prop){
 		newObject[prop] = fn(object[prop], prop, object);
 		return newObject;
@@ -43,4 +45,8 @@ function deepify(tree){
 	return deepTree[childPath]
 }
 
-export {objectMap, objectForEach, deepify}
+module.exports = {
+	objectMap: objectMap,
+	objectForEach: objectForEach,
+	deepify: deepify,
+}
