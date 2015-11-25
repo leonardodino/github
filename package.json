@@ -24,6 +24,7 @@
   "author": "Leonardo Dino <leonardo@kunstdesign.com.br>",
   "license": "MIT",
   "dependencies": {
+    "lodash": "^3.10.1",
     "github-api": "leonardodino/github-api"
   },
   "devDependencies": {
