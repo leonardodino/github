@@ -40,6 +40,7 @@ class GithubLoginService{
 		this._resetState();
 		return Promise.resolve({})
 	}
+
 	_setState(newState){
 		this.state = merge(this.state, newState)
 		localStorage.setItem(LSKey, JSON.stringify(this.state))
